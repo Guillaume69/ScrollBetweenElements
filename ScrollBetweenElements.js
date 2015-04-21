@@ -30,7 +30,7 @@ function ScrollBetweenElements(duration, isScrollbarHidden)
         isFinished = true;
       },
         duration:duration
-    },'linear');
+    });
   }
 
   function translate()
@@ -45,7 +45,7 @@ function ScrollBetweenElements(duration, isScrollbarHidden)
         isFinished = true;
       },
         duration:duration
-    },'linear');
+    });
   }
 
   function scrollNext()

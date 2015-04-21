@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Titre</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="ScrollBetweenElements.js"></script>
+</head>
+<style>
+    html, body
+    {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    #div1
+    {
+        background-color: blue;
+        height: 100%;
+        width: 100%;
+    }
+    #div2
+    {
+        background-color: red;
+        height: 100%;
+        width: 100%;
+    }
+    #div3
+    {
+        background-color: pink;
+        height: 100%;
+        width: 100%;
+    }
+    #div4
+    {
+        position: absolute;
+        background-color: orange;
+        height: 50%;
+        width: 100%;
+        left: 100%;
+    }
+    #div5
+    {
+        position: absolute;
+        background-color: green;
+        height: 100%;
+        width: 100%;
+        left: 100%;
+    }
+    #div6
+    {
+        background-color: grey;
+        height: 100%;
+        width: 100%;
+    }
+</style>
+<body>
+<div id="div1">
+</div>
+<div id="div2">
+</div>
+<div id="div3">
+    <div id="div4">
+    </div>
+    <div id="div5">
+    </div>
+</div>
+<div id="div6"></div>
+</body>
+<script type="text/javascript">
+
+
+
+
+
+
+
+    _Sk.Utils.ScrollBetweenElements.init(500, true);
+    _Sk.Utils.ScrollBetweenElements.addElement("#div1", 0);
+    _Sk.Utils.ScrollBetweenElements.addElement("#div2", 0);
+    _Sk.Utils.ScrollBetweenElements.addElement("#div3", 0);
+    _Sk.Utils.ScrollBetweenElements.addElement("#div4", 1);
+    _Sk.Utils.ScrollBetweenElements.addElement("#div5", 1);
+    _Sk.Utils.ScrollBetweenElements.addElement("#div6", 0);
+
+</script>
+</html

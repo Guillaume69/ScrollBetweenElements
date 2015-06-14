@@ -16,7 +16,16 @@ ScrollBetweenElements.init(Duration, Easing, IsScrollBarHidden, HeightCorrection
 **-Duration** : Time between each scrolls (in millisecond)<br />
 **-Easin** : Name of the easing<br />
 **-isScrollbarHidden** : Do i hide the scrollbar for you or not ? (true or false)<br />
-**-HeightCorrection**  : Correction in pixel of the height value of the scroll. For example if you have a navbar (an example is shown further)<br />
+**-HeightCorrection** : Correction in pixel of the height value of the scroll. For example if you have a navbar (an example is shown further)<br />
+
+``` javascript
+	ScrollBetweenElements.addElement(element, isVerticalScroll, callback)
+```
+
+**-element** : jquery dom selector containing the id of your element (and only id for obvious reason)<br>
+**-isVerticalScroll** : parameter to determine if your element will scroll vertically or horizontally (set nothing or null for a vertical scroll, 1 for a right to left horizontal scroll and -1 for a left to right horizontal scroll)<br>
+**-callBack** : function which will be called once the scroll to the corresponding element will be triggered.<br>
+**note** : *If you want to stay on the same element and just call the callback function with the scroll event, just set the element parameter to null.*
 
 ### Prototype of the available functions
 	

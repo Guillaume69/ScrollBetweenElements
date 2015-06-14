@@ -38,7 +38,8 @@ It will reset the position to the top of the page and it will trigger back all t
 ``` javascript
 ScrollBetweenElements.setPosition(position, func);
 ```
-- **position**: the position you wand to scroll to (the number of the element, for example, the number of the first element is 0, or simple the id for example "my_id")
+- **position**: the position you wand to scroll to (the number of the element, for example, the number of the first element is 0, or simple the id, for example "my_id")<br>
+- **func**: the function will be triggered once the setPosition function will be called. This parameter is optionnal.
 
 ### Basic Example
 

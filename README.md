@@ -41,7 +41,7 @@ ScrollBetweenElements.setPosition(position, func);
 - **position**: the position you wand to scroll to (the number of the element, for example, the number of the first element is 0, or simple the id, for example "my_id")<br>
 - **func**: the function will be triggered once the setPosition function will be called. This parameter is optionnal.
 
-### Basic Example
+### Basic example
 
 ``` html
 <body>
@@ -88,3 +88,35 @@ $(document).ready(function(){
 });
 ```
 [run this example!](http://guillaume-m.com/scrolldemo/easing-example.html)
+
+### Height correction examples
+
+you could have a navbar for example in your website which would hide the top of your page. So juste set how much pixel you want to shift the top of your element with the third parameter of the init method. You might need to reduce the size of your elements aswell (with CSS), the is different technics for it, you're free the use the one you prefer.
+
+``` html
+<body>
+    <div id="navbar">
+        HELLO, I'M NAVBAR!
+    </div>
+    <div id="div1">
+    </div>
+    <div id="div2">
+    </div>
+    <div id="div3">
+    </div>
+    <div id="div4">
+    </div>
+</body>
+```
+
+``` javascript
+$(document).ready(function(){
+    ScrollBetweenElements.init(700, "easeInOutCubic", true, 90);
+    ScrollBetweenElements.addElement($("#div1"));
+    ScrollBetweenElements.addElement($("#div2"));
+    ScrollBetweenElements.addElement($("#div3"));
+    ScrollBetweenElements.addElement($("#div4"));
+});
+```
+
+[run this example!](http://guillaume-m.com/scrolldemo/height-correction-example.html)

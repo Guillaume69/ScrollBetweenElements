@@ -15,19 +15,19 @@ a jquery animate overlay that makes you scroll between HTML elements smoothly an
 ScrollBetweenElements.init(Duration, Easing, IsScrollBarHidden, HeightCorrection);
 ```
 
-**-Duration** : Time between each scrolls (in millisecond)<br />
-**-Easin** : Name of the easing<br />
-**-isScrollbarHidden** : Do i hide the scrollbar for you or not ? (true or false)<br />
-**-HeightCorrection** : Correction in pixel of the height value of the scroll. For example if you have a navbar (an example is shown further)<br />
+**- Duration**: Time between each scrolls (in millisecond)<br />
+**- Easin**: Name of the easing<br />
+**- isScrollbarHidden**: Do i hide the scrollbar for you or not ? (true or false)<br />
+**- HeightCorrection**: Correction in pixel of the height value of the scroll. For example if you have a navbar (an example is shown further)<br />
 
 ``` javascript
 ScrollBetweenElements.addElement(element, isVerticalScroll, callback);
 ```
 
-**-element** : jquery dom selector containing the id of your element (and only id for obvious reason)<br>
-**-isVerticalScroll** : parameter to determine if your element will scroll vertically or horizontally (set nothing or null for a vertical scroll, 1 for a right to left horizontal scroll and -1 for a left to right horizontal scroll)<br>
-**-callBack** : function which will be called once the scroll to the corresponding element will be triggered.<br>
-**note** : *If you want to stay on the same element and just call the callback function with the scroll event, just set the element parameter to null.*
+**- element**: jquery dom selector containing the id of your element (and only id for obvious reason)<br>
+**- isVerticalScroll** : parameter to determine if your element will scroll vertically or horizontally (set nothing or null for a vertical scroll, 1 for a right to left horizontal scroll and -1 for a left to right horizontal scroll)<br>
+**- callBack**: function which will be called once the scroll to the corresponding element will be triggered.<br>
+**note**: *If you want to stay on the same element and just call the callback function with the scroll event, just set the element parameter to null.*
 	
 ``` javascript
 ScrollBetweenElements.resetPosition();
@@ -38,7 +38,7 @@ It will reset the position to the top of the page and it will trigger back all t
 ``` javascript
 ScrollBetweenElements.setPosition(position, func);
 ```
-- position: the position you wand to scroll to (the number of the element, for example, the number of the first element is 0, or simple the id for example "my_id")
+- **position**: the position you wand to scroll to (the number of the element, for example, the number of the first element is 0, or simple the id for example "my_id")
 
 ### Basic Example
 

@@ -9,6 +9,8 @@ a jquery animate overlay that makes you scroll between HTML elements smoothly an
 
 ## How to use it
 
+### Prototype of the available functions
+
 ``` javascript
 ScrollBetweenElements.init(Duration, Easing, IsScrollBarHidden, HeightCorrection);
 ```
@@ -19,15 +21,13 @@ ScrollBetweenElements.init(Duration, Easing, IsScrollBarHidden, HeightCorrection
 **-HeightCorrection** : Correction in pixel of the height value of the scroll. For example if you have a navbar (an example is shown further)<br />
 
 ``` javascript
-	ScrollBetweenElements.addElement(element, isVerticalScroll, callback)
+ScrollBetweenElements.addElement(element, isVerticalScroll, callback)
 ```
 
 **-element** : jquery dom selector containing the id of your element (and only id for obvious reason)<br>
 **-isVerticalScroll** : parameter to determine if your element will scroll vertically or horizontally (set nothing or null for a vertical scroll, 1 for a right to left horizontal scroll and -1 for a left to right horizontal scroll)<br>
 **-callBack** : function which will be called once the scroll to the corresponding element will be triggered.<br>
 **note** : *If you want to stay on the same element and just call the callback function with the scroll event, just set the element parameter to null.*
-
-### Prototype of the available functions
 	
 ### Basic Example
 

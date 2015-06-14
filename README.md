@@ -1,7 +1,7 @@
 # ScrollBetweenElements
 a jquery animate overlay that makes you scroll between HTML elements smoothly and without scrollbar, it allows you to translate elements into your div parents aswell.
 
-## Some things to know before using it
+### Some things to know before using it
 
 - As mentionned before, you need jQuery to use ScrollBetweenElemens, so don't forget to link jQuery before this plugin.
 - If you need multi browser support for this plugin, i recommand you to use [jquery-mousewheel](https://github.com/jquery/jquery-mousewheel) which is awesome. Link it before ScrollBetweenElements aswell.
@@ -21,7 +21,7 @@ ScrollBetweenElements.init(Duration, Easing, IsScrollBarHidden, HeightCorrection
 **-HeightCorrection** : Correction in pixel of the height value of the scroll. For example if you have a navbar (an example is shown further)<br />
 
 ``` javascript
-ScrollBetweenElements.addElement(element, isVerticalScroll, callback)
+ScrollBetweenElements.addElement(element, isVerticalScroll, callback);
 ```
 
 **-element** : jquery dom selector containing the id of your element (and only id for obvious reason)<br>
@@ -29,6 +29,17 @@ ScrollBetweenElements.addElement(element, isVerticalScroll, callback)
 **-callBack** : function which will be called once the scroll to the corresponding element will be triggered.<br>
 **note** : *If you want to stay on the same element and just call the callback function with the scroll event, just set the element parameter to null.*
 	
+``` javascript
+ScrollBetweenElements.resetPosition();
+```
+
+It will reset the position to the top of the page and it will trigger back all the functions just like you scrolled manually to the top.
+
+``` javascript
+ScrollBetweenElements.setPosition(position, func);
+```
+- position: the position you wand to scroll to (the number of the element, for example, the number of the first element is 0, or simple the id for example "my_id")
+
 ### Basic Example
 
 ``` html

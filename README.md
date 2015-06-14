@@ -91,7 +91,9 @@ $(document).ready(function(){
 
 ### Height correction examples
 
-you could have a navbar for example in your website which would hide the top of your page. So juste set how much pixel you want to shift the top of your element with the third parameter of the init method. You might need to reduce the size of your elements aswell (with CSS), the is different technics for it, you're free the use the one you prefer.
+you could have a navbar for example in your website which would hide the top of your page. So juste set how much pixel you want to shift the top of your element with the third parameter of the init method. You might need to reduce the size of your elements aswell (with CSS), the is different technics for it, you're free the use the one you prefer.<br><br>
+
+In the example, the "navbar" is 90 pixels heigh so i shifted the top to 90 pixels.
 
 ``` html
 <body>
@@ -120,3 +122,62 @@ $(document).ready(function(){
 ```
 
 [run this example!](http://guillaume-m.com/scrolldemo/height-correction-example.html)
+
+### Horizontal scroll example
+
+You can also choose to scroll to an element horizontally. For this you need to put those elements into a parent element. The parent element must be in relative position. and then add all your elements with the addElement method like in the example below.
+
+``` html
+<body>
+    <div id="div1">
+    </div>
+    <div id="div2"><!-- PARENT ELEMENT -->
+        <div id="div3"><!-- CHILD ELEMENT -->
+        </div>
+        <div id="div4"><!-- CHILD ELEMENT -->
+        </div>
+    </div>
+    <div id="div5"><!-- PARENT ELEMENT -->
+        <div id="div6"><!-- CHILD ELEMENT -->
+        </div>
+        <div id="div7"><!-- CHILD ELEMENT -->
+        </div>
+    </div>
+    <div id="div8">
+    </div>
+</body>
+```
+
+``` javascript
+$(document).ready(function(){
+    $('body,html').animate({ scrollTop: 0 }, 500);
+    ScrollBetweenElements.init(900, "easeOutBounce", true);
+    ScrollBetweenElements.addElement($("#div1"));
+    ScrollBetweenElements.addElement($("#div2"));
+    ScrollBetweenElements.addElement($("#div3"), 1); /* From right to left */
+    ScrollBetweenElements.addElement($("#div4"), 1); /* From right to left */
+    ScrollBetweenElements.addElement($("#div5"));
+    ScrollBetweenElements.addElement($("#div6"), -1);/* From right to left */
+    ScrollBetweenElements.addElement($("#div7"), -1);/* From right to left */
+    ScrollBetweenElements.addElement($("#div8"));
+});
+```
+
+For the moment you are not able to add elements that scroll from the right and from the left in a row, because it doesn't make sense for me.(if it's not clear why it doesn't make sens, have a look the this awesome paint basic schema about how this plugin work at the bottom of this readme.)
+
+to be clear you can't do the following
+
+``` javascript
+$(document).ready(function(){
+    $('body,html').animate({ scrollTop: 0 }, 500);
+    ScrollBetweenElements.init(900, "easeOutBounce", true);
+    ScrollBetweenElements.addElement($("#div1"));
+    ScrollBetweenElements.addElement($("#div2", 1));
+    ScrollBetweenElements.addElement($("#div3"), -1);
+    ScrollBetweenElements.addElement($("#div4"), 1);
+    ScrollBetweenElements.addElement($("#div5"), -1);
+});
+
+Actually, you can, but the result is not quite well.
+
+[run this example!](http://guillaume-m.com/scrolldemo/translation-example.html)

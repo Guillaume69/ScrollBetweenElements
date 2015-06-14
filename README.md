@@ -165,7 +165,7 @@ $(document).ready(function(){
 
 For the moment you are not able to add elements that scroll from the right and from the left in a row, because it doesn't make sense for me.(if it's not clear why it doesn't make sens, have a look the this awesome paint basic schema about how this plugin work at the bottom of this readme.)
 
-to be clear you can't do the following
+**to be clear you can't do the following**
 
 ``` javascript
 $(document).ready(function(){
@@ -179,5 +179,6 @@ $(document).ready(function(){
 });
 
 Actually, you can, but the result is not quite well.
+
 
 [run this example!](http://guillaume-m.com/scrolldemo/translation-example.html)

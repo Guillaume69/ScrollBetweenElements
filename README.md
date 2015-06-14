@@ -57,7 +57,6 @@ ScrollBetweenElements.setPosition(position, func);
 ```
 ``` javascript
 $(document).ready(function(){
-    $('body,html').animate({ scrollTop: 0 }, 500);
     ScrollBetweenElements.init(400, "linear", true);
     ScrollBetweenElements.addElement($("#div1"));
     ScrollBetweenElements.addElement($("#div2"));
@@ -66,6 +65,13 @@ $(document).ready(function(){
 });
 ```
 [run this example!](http://guillaume-m.com/scrolldemo/basic-example.html)
+
+### Example with small elements
+
+You don't need to have 100% height elements, you can set a custom size.
+it's the same html and javascript code, just the CSS code changed, check it out by looking at the source-code of the page, the css is displayed for every example inside the html file.
+
+[run this example!](http://guillaume-m.com/scrolldemo/small-div-example.html)
 
 in the addElement method, the first parameter is the elements you want to animate, the second parameters indicate which animation you want. 0 means scroll from an element to the next one, 1 means translate from the right to the left. of course the elements you want to translate must have a 100% translation to the right to be hidden and an absolute position, and each elements (that you could call scene), must be 100% height and 100% height.
 

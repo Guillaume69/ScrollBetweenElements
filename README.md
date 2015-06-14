@@ -16,7 +16,7 @@ ScrollBetweenElements.init(Duration, Easing, IsScrollBarHidden, HeightCorrection
 **-Duration** : Time between each scrolls (in millisecond)<br />
 **-Easin** : Name of the easing<br />
 **-isScrollbarHidden** : Do i hide the scrollbar for you or not ? (true or false)<br />
-**-HeightCorrection** : Correction in pixel of the height value of the scroll. For example if you have a navbar (an example is shown further)<br />
+**-HeightCorrection**  : Correction in pixel of the height value of the scroll. For example if you have a navbar (an example is shown further)<br />
 
 ### Prototype of the available functions
 	

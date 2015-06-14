@@ -177,8 +177,8 @@ $(document).ready(function(){
     ScrollBetweenElements.addElement($("#div4"), 1);
     ScrollBetweenElements.addElement($("#div5"), -1);
 });
+```
 
 Actually, you can, but the result is not quite well.
-
 
 [run this example!](http://guillaume-m.com/scrolldemo/translation-example.html)

@@ -18,6 +18,7 @@ ScrollBetweenElements.init(Duration, Easing, IsScrollBarHidden, HeightCorrection
 -isScrollbarHidden : Do i hide the scrollbar for you or not ? (true or false)
 -HeightCorrection : Correction in pixel of the height value of the scroll. For example if you have a navbar (an example is shown further)
 
+
 ### Prototype of the available functions
 	
 ### Basic Example

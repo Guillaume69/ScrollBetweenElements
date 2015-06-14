@@ -10,14 +10,7 @@ a jquery animate overlay that makes you scroll between HTML elements smoothly an
 ## How to use it
 
 ``` javascript
-$(document).ready(function(){
-    $('body,html').animate({ scrollTop: 0 }, 500);
-    ScrollBetweenElements.init(400, "linear", true);
-    ScrollBetweenElements.addElement($("#div1"));
-    ScrollBetweenElements.addElement($("#div2"));
-    ScrollBetweenElements.addElement($("#div3"));
-    ScrollBetweenElements.addElement($("#div4"));
-});
+ScrollBetweenElements.init(Duration, Easing, IsScrollBarHidden, HeightCorrection);
 ```
 
 ### Prototype of the available functions

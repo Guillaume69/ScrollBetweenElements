@@ -259,6 +259,109 @@ $(document).ready(function(){
 });
 ```
 
-[run this example!](http://guillaume-m.com/scrolldemo/translation-example.html)
+[run this example!](http://guillaume-m.com/scrolldemo/function-example.html)
 
 ### setPosition and resetPosition methods
+
+I will introduce both of these method at the same time.
+
+resetPosition, is basically a method wich will scroll you back to the top of the page, triggering all the functions back exactly like you would have scrolled "manually" to the top, but faster.
+
+and setPosition is pretty much the same except that you choose at which element you want to be. you can also trigger a function as the second parameter of setPosition, but it is optionnal.
+
+these methods are usefull with buttons with click event for example. Let's take back the previous example and add it two buttons with respectively setPosition and resetPosition.
+
+``` html
+<body>
+    <div id="div1">
+        <button id="button-1">
+            Take me to the penultimate scene please
+        </button>
+    </div>
+    <div class="scene-container">
+        <div id="div3">
+            <br>
+            <br>
+            <br>
+            I'M JUST HERE AS A BACKGROUND UNDER A TRANSPARENT SCENE WHICH WILL COME FROM HERE ---><br> I WON'T MOVE !
+        </div>
+        <div id="div2">
+            <div class="container">
+                <div id="animation-1">
+                    WOW
+                </div>
+            </div>
+            <div class="container">
+                <div id="animation-2">
+                    SUCH TRANSITION !
+                </div>
+            </div>
+            <div class="transparent" id="transparent">
+                <div class="container">
+                    <div class="appear">
+                        MY BACKGROUND COLOR IS TRANSPARENT
+                    </div>
+                </div>
+            </div>
+            <div class="transparent" id="transparent-2">
+                <div class="container">
+                    <div class="appear">
+                        SUCH SLIDE !
+                    </div>
+                </div>
+            </div>
+            <div id="div4">
+            </div>
+        </div>
+    </div>
+    <div id="div5">
+                <button id="button-2">
+                    Take me back to the top please
+                </button>
+            </div>
+    <div id="div6">
+    </div>
+</body>
+```
+
+``` javascript
+$(document).ready(function(){
+    ScrollBetweenElements.init(900, "easeOutQuint", true);
+    ScrollBetweenElements.addElement($("#div1"));
+    ScrollBetweenElements.addElement($("#div2"), null, function(){
+        $("#animation-1").css({"opacity": 0});
+    });
+    ScrollBetweenElements.addElement(null, null, function(){
+        $("#animation-1").css({"opacity": 1});
+        $("#animation-2").css({"opacity": 0});
+    });
+    ScrollBetweenElements.addElement(null, null, function(){
+        $("#animation-1").css({"opacity": 0});
+        $("#animation-2").css({"opacity": 1});
+    });
+    ScrollBetweenElements.addElement($("#transparent"), 1);
+    ScrollBetweenElements.addElement($("#transparent-2"), 1);
+    ScrollBetweenElements.addElement($("#div4"), 1);
+    ScrollBetweenElements.addElement($("#div5"));
+    ScrollBetweenElements.addElement($("#div6"));
+    $("#button-1").click(function(){
+        ScrollBetweenElements.setPosition("div5");
+    });
+    $("#button-2").click(function(){
+        ScrollBetweenElements.resetPosition();
+    });
+});
+```
+
+[run this example!](http://guillaume-m.com/scrolldemo/setposition-resetposition-example.html)
+
+
+### To finish
+
+I hope it will be usefull for some people, if you didn't understand very well the mechanism of this plugin check this [beautiful paint made schema](http://guillaume-m.com/scrolldemo/basic-paint-schema.jpg)
+
+It's free to use, free to modify, free to critic.
+
+if you have any feedback, improvement or anything you can contact me at **guillaume-marchand@live.fr**
+
+PS: *This is no the the final version, more features are coming. Make it work for mobiles devices is a very next feature.*

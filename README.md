@@ -8,10 +8,20 @@ a jquery animate overlay that makes you scroll between HTML elements smoothly an
 - For more awesomeness, i'm using jqueryUI for for its cool easing. So i recommand you to link it to be able to use more easing in ScrollBetweenElements(link it before ScrollBetweenElements of course)
 
 ## How to use it
+
+``` javascript
+$(document).ready(function(){
+    $('body,html').animate({ scrollTop: 0 }, 500);
+    ScrollBetweenElements.init(400, "linear", true);
+    ScrollBetweenElements.addElement($("#div1"));
+    ScrollBetweenElements.addElement($("#div2"));
+    ScrollBetweenElements.addElement($("#div3"));
+    ScrollBetweenElements.addElement($("#div4"));
+});
+```
+
 ### Prototype of the available functions
-	``` javascript
-	ScrollBetweenElements.init(Duration, Easing, IsScrollBarHidden, HeightCorrection);
-	```
+	
 ### Basic Example
 
 ``` html

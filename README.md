@@ -73,6 +73,22 @@ it's the same html and javascript code, just the CSS code changed, check it out 
 
 [run this example!](http://guillaume-m.com/scrolldemo/small-div-example.html)
 
+### Easing example
+
+You can change the easing of the scroll simply by changing the second parameter of the init method.
+Thanks to [jqueryui](https://jqueryui.com/easing/) for the easings
+
+``` javascript
+$(document).ready(function(){
+    ScrollBetweenElements.init(900, "easeOutBounce", true);
+    ScrollBetweenElements.addElement($("#div1"));
+    ScrollBetweenElements.addElement($("#div2"));
+    ScrollBetweenElements.addElement($("#div3"));
+    ScrollBetweenElements.addElement($("#div4"));
+});
+```
+[run this example!](http://guillaume-m.com/scrolldemo/easing-example.html)
+
 in the addElement method, the first parameter is the elements you want to animate, the second parameters indicate which animation you want. 0 means scroll from an element to the next one, 1 means translate from the right to the left. of course the elements you want to translate must have a 100% translation to the right to be hidden and an absolute position, and each elements (that you could call scene), must be 100% height and 100% height.
 
 simple right ?

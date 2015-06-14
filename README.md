@@ -169,7 +169,6 @@ For the moment you are not able to add elements that scroll from the right and f
 
 ``` javascript
 $(document).ready(function(){
-    $('body,html').animate({ scrollTop: 0 }, 500);
     ScrollBetweenElements.init(900, "easeOutBounce", true);
     ScrollBetweenElements.addElement($("#div1"));
     ScrollBetweenElements.addElement($("#div2", 1));
@@ -182,3 +181,84 @@ $(document).ready(function(){
 Actually, you can, but the result is not quite well.
 
 [run this example!](http://guillaume-m.com/scrolldemo/translation-example.html)
+
+### Function at the scroll event
+
+As i said before, you can trigger anonymous functions at the scroll event, for this, just put your function as the third parameter of the addElement method.<br><br>
+
+With this and a minimum of knowledge of CSS3 and jquery you can make some pretty good effects. If you are not aware of it, take a look at [this](http://www.w3schools.com/css/css3_transitions.asp) and [this](http://www.w3schools.com/css/css3_animations.asp)
+
+Also, don't hesitate to use transparent background colors in horizontally scrolls, it gaves good effects.
+
+here is another example for this
+
+``` html
+<body>
+    <div id="div1">
+    </div>
+    <div class="scene-container">
+        <div id="div3"> <!-- This DIV is not added to ScrollBetweenElement, and it's normal it is just here as a background-->
+        <br>
+        <br>
+        <br>
+            I'M JUST HERE AS A BACKGROUND UNDER A TRANSPARENT SCENE WHICH WILL COME FROM HERE ---><br> I WON'T MOVE !
+        </div>
+        <div id="div2">
+        <div class="container">
+            <div id="animation-1">
+                WOW
+            </div>
+        </div>
+        <div class="container">
+            <div id="animation-2">
+                SUCH TRANSITION !
+            </div>
+        </div>
+        <div class="transparent" id="transparent">
+            <div class="container">
+                <div class="appear">
+                    MY BACKGROUND COLOR IS TRANSPARENT
+                </div>
+            </div>
+        </div>
+        <div class="transparent" id="transparent-2">
+            <div class="container">
+                <div class="appear">
+                    SUCH SLIDE !
+                </div>
+            </div>
+        </div>
+        <div id="div4">
+        </div>
+    </div>
+    </div>
+    <div id="div5">
+    </div>
+</body>
+```
+
+``` javascript
+$(document).ready(function(){
+    ScrollBetweenElements.init(900, "easeOutBounce", true);
+    ScrollBetweenElements.addElement($("#div1"));
+    ScrollBetweenElements.addElement($("#div2"), null, function(){
+        $("#animation-1").css({"opacity": 0});
+    });
+    ScrollBetweenElements.addElement(null, null, function(){
+        $("#animation-1").css({"opacity": 1});
+        $("#animation-2").css({"opacity": 0});
+    });
+    ScrollBetweenElements.addElement(null, null, function(){
+        $("#animation-1").css({"opacity": 0});
+        $("#animation-2").css({"opacity": 1});
+    });
+    ScrollBetweenElements.addElement($("#transparent"), 1);
+    ScrollBetweenElements.addElement($("#transparent-2"), 1);
+    ScrollBetweenElements.addElement($("#div4"), 1);
+    ScrollBetweenElements.addElement($("#div5"));
+});
+```
+
+[run this example!](http://guillaume-m.com/scrolldemo/translation-example.html)
+
+### setPosition and resetPosition methods

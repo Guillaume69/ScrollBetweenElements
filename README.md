@@ -1,22 +1,51 @@
 # ScrollBetweenElements
 a jquery animate overlay that makes you scroll between HTML elements smoothly and without scrollbar, it allows you to translate elements into your div parents aswell.
 
-simply link the script(make sure it is linked after jquery) and then enjoy(or not)
+## Some things to know before using it
 
-example:
+- As mentionned before, you need jQuery to use ScrollBetweenElemens, so don't forget to link jQuery before this plugin.
+- If you need multi browser support for this plugin, i recommand you to use [jquery-mousewheel](https://github.com/jquery/jquery-mousewheel) which is awesome. Link it before ScrollBetweenElements aswell.
+- For more awesomeness, i'm using jqueryUI for for its cool easing. So i recommand you to link it to be able to use more easing in ScrollBetweenElements(link it before ScrollBetweenElements of course)
+
+## How to use it
+## Prototype of the available functions
+	``` javascript
+	ScrollBetweenElements.init(Duration, Easing, IsScrollBarHidden, HeightCorrection)
+	```
+	-Duration: Time between each scrolls (in millisecond)
+	-Easin : Name of the easing
+	-isScrollbarHidden : Do i hide the scrollbar for you or not ? (true or false)
+	-HeightCorrection : Correction in pixel of the height value of the scroll. For example if you have a navbar (an example is shown further)
+	``` javascript
+	ScrollBetweenElements.addElement(element, isVerticalScroll, callback)
+	```
+	-element: jquery dom selector containing the id of your element (and only id for obvious reason)
+	-isVerticalScroll : parameter to determine if your element will scroll vertically or horizontally (set nothing or null for a vertical scroll, 1 for a right to left horizontal scroll and -1 for a left to right horizontal scroll)
+	-callBack : function which will be called once the scroll to the corresponding element will be triggered.
+	note: *If you want to stay on the same element and just call the callback function with the scroll event, just set the element parameter to null.*
+## Basic Example
+
 ``` html
-<div id="div1"></div>
-<div id="div2"></div>
-<div id="div3">
-	<div id="div4"></div>
-</div>
+<body>
+    <div id="div1">
+    </div>
+    <div id="div2">
+    </div>
+    <div id="div3">
+    </div>
+    <div id="div4">
+    </div>
+</body>
 ```
 ``` javascript
-var scroller = new ScrollBetweenElements(500, true);
-scroller.addElement("#div1", 0);
-scroller.addElement("#div2", 0);
-scroller.addElement("#div3", 0);
-scroller.addElement("#div4", 1);
+$(document).ready(function(){
+    $('body,html').animate({ scrollTop: 0 }, 500);
+    ScrollBetweenElements.init(400, "linear", true);
+    ScrollBetweenElements.addElement($("#div1"));
+    ScrollBetweenElements.addElement($("#div2"));
+    ScrollBetweenElements.addElement($("#div3"));
+    ScrollBetweenElements.addElement($("#div4"));
+});
 ```
 in the addElement method, the first parameter is the elements you want to animate, the second parameters indicate which animation you want. 0 means scroll from an element to the next one, 1 means translate from the right to the left. of course the elements you want to translate must have a 100% translation to the right to be hidden and an absolute position, and each elements (that you could call scene), must be 100% height and 100% height.
 

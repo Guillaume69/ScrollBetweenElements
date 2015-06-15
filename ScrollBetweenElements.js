@@ -50,7 +50,7 @@ ScrollBetweenElements = (function ($) {
 
 
     function translateToZero() {
-        var translateValue = -100 * elements[index]["translateAnchor"] * elements[index]["isVerticalTranslation"];
+        var translateValue = -100 * elements[index]["translateAnchor"] * elements[index]["isVerticalScroll"];
         elements[index - elements[index]["translateAnchor"]]["element"].animate({'left': translateValue.toString() + "%"}, {
             start: function () {
                 isFinished = false;
@@ -69,7 +69,7 @@ ScrollBetweenElements = (function ($) {
     }
 
     function translate() {
-        var translateValue = (100 * elements[index]["translateAnchor"] - 100) * -1 * elements[index]["isVerticalTranslation"];
+        var translateValue = (100 * elements[index]["translateAnchor"] - 100) * -1 * elements[index]["isVerticalScroll"];
         elements[index - elements[index]["translateAnchor"]]["element"].animate({'left': translateValue.toString() + "%"}, {
             start: function () {
                 isFinished = false;
@@ -148,16 +148,16 @@ ScrollBetweenElements = (function ($) {
                         ++index;
                     else
                         --index;
-                    if (elements[index]["isVerticalTranslation"] != null){
+                    if (elements[index]["isVerticalScroll"] != null){
                         translateToZero();
                     } else {
                         scrollNext();
                     }
                 }
                 if (delta <= 0) {
-                    if (elements[index]["isVerticalTranslation"] != null && index != 0)
+                    if (elements[index]["isVerticalScroll"] != null && index != 0)
                         translate();
-                    else if (elements[index]["isVerticalTranslation"] == null && previousIndex != 0) {
+                    else if (elements[index]["isVerticalScroll"] == null && previousIndex != 0) {
                         previousElement = elements[index]["element"];
                         if (index > 0)
                             --index;
@@ -172,11 +172,12 @@ ScrollBetweenElements = (function ($) {
             if (isFinished == true){
                 if (e.keyCode == 40){
                     if (previousIndex != ((elements.length - 1))) {
+                         previousElement = elements[index]["element"];
                         if (index < (elements.length - 1))
                             ++index;
                         else
                             --index;
-                        if (elements[index]["isVerticalTranslation"] != null){
+                        if (elements[index]["isVerticalScroll"] != null){
                             translateToZero();
                         } else {
                             scrollNext();
@@ -184,9 +185,10 @@ ScrollBetweenElements = (function ($) {
                     }
                 }
                 if (e.keyCode == 38){
-                    if (elements[index]["isVerticalTranslation"] != null && index != 0)
+                    if (elements[index]["isVerticalScroll"] != null && index != 0)
                         translate();
-                    else if (elements[index]["isVerticalTranslation"] == null && previousIndex != 0) {
+                    else if (elements[index]["isVerticalScroll"] == null && previousIndex != 0) {
+                        previousElement = elements[index]["element"];
                         if (index > 0)
                             --index;
                         else
@@ -219,9 +221,9 @@ ScrollBetweenElements = (function ($) {
                 if (elements[index]["callback"] != null && elements[index]["isEndOfAnimation"] == false) {
                     elements[index]["callback"]();
                 }
-                if (elements[index]["isVerticalTranslation"] != null && resetTranslation === false) {
+                if (elements[index]["isVerticalScroll"] != null && resetTranslation === false) {
                     resetTranslation = true;
-                } else if(resetTranslation === true && elements[index]["isVerticalTranslation"] == null){
+                } else if(resetTranslation === true && elements[index]["isVerticalScroll"] == null){
                     elements[index]["element"].css({"left": 0});
                 }
             }
@@ -248,13 +250,13 @@ ScrollBetweenElements = (function ($) {
                 if (elements[index]["callback"] != null && elements[index]["isEndOfAnimation"] == false) {
                     elements[index]["callback"]();
                 }
-                if (elements[index]["isVerticalTranslation"] != null) {
+                if (elements[index]["isVerticalScroll"] != null) {
                     ++resetTranslation;
                 }
-                if (resetTranslation > 0 && (elements[index]["isVerticalTranslation"] == null || index == position)) {
-                    if (elements[index]["isVerticalTranslation"] == null)
+                if (resetTranslation > 0 && (elements[index]["isVerticalScroll"] == null || index == position)) {
+                    if (elements[index]["isVerticalScroll"] == null)
                         ++isTranslation
-                    transValue = (100 * resetTranslation) * -1 * elements[index - (resetTranslation - 1)]["isVerticalTranslation"];
+                    transValue = (100 * resetTranslation) * -1 * elements[index - (resetTranslation - 1)]["isVerticalScroll"];
                     elements[index - resetTranslation - isTranslation]["element"].css({"left": transValue.toString() + "%"});
                     resetTranslation = 0;
                     isTranslation = 0;
@@ -266,9 +268,9 @@ ScrollBetweenElements = (function ($) {
                 if (elements[index]["callback"] != null && elements[index]["isEndOfAnimation"] == false) {
                     elements[index]["callback"]();
                 }
-                if (elements[index]["isVerticalTranslation"] != null && resetTranslation === false) {
+                if (elements[index]["isVerticalScroll"] != null && resetTranslation === false) {
                     resetTranslation = true;
-                } else if(resetTranslation === true && elements[index]["isVerticalTranslation"] == null){
+                } else if(resetTranslation === true && elements[index]["isVerticalScroll"] == null){
                     elements[index]["element"].css({"left": 0});
                 }
             }
@@ -304,38 +306,38 @@ ScrollBetweenElements = (function ($) {
         }
     }
 
-    function setTranslationPosition(element, transAnchor, isVerticalTranslation){
-        var translateValue = 100 * transAnchor * isVerticalTranslation;
+    function setTranslationPosition(element, transAnchor, isVerticalScroll){
+        var translateValue = 100 * transAnchor * isVerticalScroll;
 
         element.css({"position": "absolute", "left": translateValue.toString() + "%"});
     }
 
-    function addElement(element, isVerticalTranslation, callback, isEndOfAnimation) {
+    function addElement(element, isVerticalScroll, callback, isEndOfAnimation) {
         var translateAnchorValue;
         callback = callback || null;
-        isVerticalTranslation = isVerticalTranslation || null;
+        isVerticalScroll = isVerticalScroll || null;
         isEndOfAnimation = isEndOfAnimation || false;
 
-        if (isVerticalTranslation != null){
+        if (isVerticalScroll != null){
             ++translateAnchor;
-            setTranslationPosition(element, translateAnchor, isVerticalTranslation);
+            setTranslationPosition(element, translateAnchor, isVerticalScroll);
             translateAnchorValue = translateAnchor;
         }
-        else if (translateAnchor > 0 && isVerticalTranslation == null){
+        else if (translateAnchor > 0 && isVerticalScroll == null){
             translateAnchor = 0;
             translateAnchorValue = null;
         }
         if (element == null)
             elements.push({
                 "element": elements[elements.length - 1]["element"],
-                "isVerticalTranslation": isVerticalTranslation,
+                "isVerticalScroll": isVerticalScroll,
                 "callback": callback,
                 "isEndOfAnimation": isEndOfAnimation,
                 "translateAnchor": translateAnchorValue});
         else
             elements.push({
                 "element": element,
-                "isVerticalTranslation": isVerticalTranslation,
+                "isVerticalScroll": isVerticalScroll,
                 "callback": callback,
                 "isEndOfAnimation": isEndOfAnimation,
                 "translateAnchor": translateAnchorValue});

@@ -362,6 +362,6 @@ I hope it will be usefull for some people, if you didn't understand very well th
 
 It's free to use, free to modify, free to critic.
 
-if you have any feedback, improvement or anything you can contact me at **guillaume-marchand@live.fr**
+if you have any feedback, improvement, question or anything you can contact me at **guillaume-marchand@live.fr**
 
 PS: *This is no the the final version, more features are coming. Make it work for mobiles devices is a very next feature.*

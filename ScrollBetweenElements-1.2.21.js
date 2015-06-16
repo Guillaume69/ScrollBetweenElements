@@ -123,7 +123,7 @@ ScrollBetweenElements = (function ($) {
     function init(pDuration, pEasing, pIsScrollBarHidden, pHeightCorrection) {
 
         window.addEventListener("keydown", function(e) {
-            if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+            if([38, 40].indexOf(e.keyCode) > -1) {
                 e.preventDefault();
             }
         }, false);
